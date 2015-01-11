@@ -1,2 +1,6 @@
-# TestApp
-Final assignment for CRIA WT at the HAN
+Test App
+=========
+ 
+Student name: Taco Verdonschot
+Student ID: 496720
+ 
