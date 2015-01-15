@@ -1,0 +1,21 @@
+<h2>Users</h2>
+
+<a class="floatRight" href="/#/users/0">
+    <button class="btn btn-primary">Create</button>
+</a>
+
+<a class="floatRight" href="/#/generateUser">
+    <button class="btn btn-primary">Generate</button>
+</a>
+
+<div class="list-group">
+    <input ng-model="query" placeholder="Type to start searching...">
+</div>
+<div class="list-group">
+    <a href="#/users/{{user._id}}" data-ng-repeat="user in users.doc | filter: query">
+        <img class="smallImage" data-ng-src="/images/faces/{{user.gender}}/{{user.picture}}" alt="{{user.picture}}"
+             title="{{user.picture}}"> <br>
+        {{user.email}};{{user.gender}}; {{user.name}}; {{user.email}};
+        <hr>
+    </a>
+</div>

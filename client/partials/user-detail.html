@@ -1,0 +1,146 @@
+<form name="userForm" novalidate>
+    <div class="">
+
+        <h3>Detail page</h3>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li><a href="#User" data-toggle="tab">User</a></li>
+            <li><a href="#Picture" data-toggle="tab">Picture</a></li>
+            <li><a href="#Groups" data-toggle="tab">Memberships</a></li>
+        </ul>
+
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- ================================================ -->
+            <div class="tab-pane active" id="User">
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Id</span>
+                    <input type="text" class="form-control" placeholder="Id" data-ng-model="users.doc._id" readonly>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Gender</span>
+                    <!-- TODO: @see http://docs.angularjs.org/api/ng.directive:select -->
+                    <select
+                            data-ng-model="users.doc.gender"
+                            data-ng-options="option for option in genders">
+                        <option value="">-- choose gender --</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Name</span>
+                    <input type="text" class="form-control" placeholder="Name" name="name" data-ng-model="users.doc.name"
+                           required=""
+                           pattern=".{8,}">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Street</span>
+                    <input type="text" class="form-control" placeholder="Street" data-ng-model="users.doc.location.street">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Postcode</span>
+                    <input type="text" class="form-control" placeholder="Postcode" data-ng-model="users.doc.location.zip">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">City</span>
+                    <input type="text" class="form-control" placeholder="City" data-ng-model="users.doc.location.city">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">State</span>
+                    <input type="text" class="form-control" placeholder="State" data-ng-model="users.doc.location.state">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Phone</span>
+                    <input type="text" class="form-control" placeholder="06-12345678" data-ng-model="users.doc.phone"
+                           required="" data-ng-pattern="/^06-{0,1}[0-9]{8}$/">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Email</span>
+                    <input type="email" class="form-control" placeholder="Email" data-ng-model="users.doc.email" required="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Password</span>
+                    <input type="password" class="form-control" placeholder="Password" data-ng-model="users.doc.password">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Confirm password</span>
+                    <input type="password" class="form-control" placeholder="Confirm password"
+                           data-ng-model="users.doc.confirmPassword">
+                </div>
+
+
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Description</span>
+                    <input type="text" class="form-control" placeholder="Description" data-ng-model="users.doc.description">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">modificationDate</span>
+                    <input type="text" class="form-control" placeholder="modificationDate" readonly
+                           data-ng-model="users.doc.modificationDate">
+                </div>
+            </div>
+            <!-- ================================================ -->
+
+            <div class="tab-pane" id="Picture">
+                <div style="float:right">
+                    <img data-ng-src="/images/faces/{{users.doc.gender}}/{{users.doc.picture}}">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addonWidth">Picture</span>
+                    <input type="text" class="form-control" placeholder="Picture" data-ng-model="users.doc.picture">
+                </div>
+
+            </div>
+            <!-- ================================================ -->
+
+            <div class="tab-pane" id="Groups">
+                <small>Select the groups that you are member of.</small>
+
+                <div class="checkbox" class="input-group" data-ng-repeat="group in users.groups">
+                    <label>
+                        <input type="checkbox" data-ng-model="group.isMember"> {{group.name}}
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <p class="clearfix"></p>
+    <hr>
+
+    <div>
+        <p>
+            <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-ng-click="delete(users.doc._id)"
+                    confirmation-needed="Really Delete?"
+                    >
+                Delete
+            </button>
+            <!--http://codepen.io/brunoscopelliti/pen/plFLI-->
+            <!--<button type="button" class="btn btn-success floatRight" data-ng-click="save()"-->
+                    <!--data-ng-disabled="users.doc.phone.$pristine || users.doc.phone.$dirty && userForm.$invalid">Save-->
+            <!--</button>   -->
+            <button type="button" class="btn btn-success floatRight" data-ng-click="save()"
+                    data-ng-disabled="userForm.$invalid">Save
+            </button>
+        </p>
+    </div>
+
+</form>
+
+<div data-ng-class="class='alert alert-danger'" data-ng-hide="checkResult('err', isSuccess)" id="errorMessage">
+    <!-- optional: enable line below to show close button -->
+    <!--<button type="button" class="close" data-dismiss="alert">&times;</button> -->
+    {{err}}
+</div>
+<div data-ng-class="class='alert alert-success'" data-ng-show="checkResult('res', isSuccess)" id="successMessage">
+    {{msg}}
+</div>
+

@@ -1,0 +1,54 @@
+<form name="groupForm">
+    <div class="">
+        <h3>Detail page</h3>
+
+        <div class="input-group">
+            <span class="input-group-addon input-group-addonWidth">Id</span>
+            <input type="text" class="form-control" placeholder="Id" data-ng-model="groups.doc._id" readonly>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon input-group-addonWidth">Name</span>
+            <input type="text" class="form-control" placeholder="Name" name="name" data-ng-model="groups.doc.name"
+                   required=""
+                   pattern=".{8,}">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon input-group-addonWidth">Description</span>
+            <input type="text" class="form-control" placeholder="Description" data-ng-model="groups.doc.description">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon input-group-addonWidth">modificationDate</span>
+            <input type="text" class="form-control" placeholder="modificationDate" readonly
+                   data-ng-model="groups.doc.modificationDate">
+        </div>
+    </div>
+
+    <p><!-- Empty line --></p>
+
+    <div>
+        <p>
+            <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-ng-click="delete(groups.doc._id)"
+                    confirmation-needed="Really Delete?"
+                    >
+                Delete
+            </button>
+
+            <button type="button" class="btn btn-success floatRight" data-ng-click="save()"
+                    data-ng-disabled="groupForm.$invalid">Save
+            </button>
+        </p>
+    </div>
+
+</form>
+
+<div data-ng-class="class='alert alert-danger'" data-ng-hide="checkResult('err', isSuccess)" id="errorMessage">
+    <!-- optional: enable line below to show close button -->
+    <!--<button type="button" class="close" data-dismiss="alert">&times;</button> -->
+    {{err}}
+</div>
+<div data-ng-class="class='alert alert-success'" data-ng-show="checkResult('res', isSuccess)" id="successMessage">
+    {{msg}}
+</div>

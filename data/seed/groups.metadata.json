@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "p496720.groups", "name" : "_id_" }, { "v" : 1, "key" : { "name" : 1, "createdBy" : 1 }, "unique" : true, "ns" : "p496720.groups", "name" : "name_1_createdBy_1", "background" : true, "safe" : null } ] }

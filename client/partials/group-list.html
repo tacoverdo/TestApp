@@ -1,0 +1,12 @@
+<h2>Groups</h2>
+<div class="list-group">
+    <input ng-model="query" placeholder="Type to start searching...">
+    <a class="floatRight" href="/#/groups/0">
+        <button class="btn btn-primary">Create</button>
+    </a>
+</div>
+<div class="list-group">
+    <a href="#/groups/{{group._id}}" data-ng-repeat="group in groups.doc | filter: query">
+        {{group.name}}<br>
+    </a>
+</div>

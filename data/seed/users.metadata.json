@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "p496720.users", "name" : "_id_" }, { "v" : 1, "key" : { "email" : 1 }, "unique" : true, "ns" : "p496720.users", "name" : "email_1", "background" : true, "safe" : null } ] }

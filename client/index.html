@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo Users and Groups">
+    <meta name="author" content="theotheu">
+    <title>TestApp</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <!-- @see http://getbootstrap.com/ -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./css/jumbotron.css" rel="stylesheet">
+
+    <link href="./css/custom.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- login/logout form -->
+<!--<div data-ng-controller="UserLoginCtrl" data-ng-include data-src="getPartial()"></div>-->
+
+<!-- TODO: @see http://getbootstrap.com/getting-started/ -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Demo</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/users">Users</a></li>
+                <li><a href="#/groups">Groups</a></li>
+
+            </ul>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-lg-8">
+
+            <div data-ng-view=""></div>
+
+        </div>
+
+        <div class="col-lg-4">
+            <h2>Joins in MongoDb</h2>
+
+            <p>Do not exist</p>
+
+            <table>
+                <tr>
+                    <td>SQL</td>
+                    <td>MongoDb</td>
+                </tr>
+                <tr>
+                    <td>Database</td>
+                    <td>Database</td>
+                </tr>
+                <tr>
+                    <td>Table</td>
+                    <td>Collection</td>
+                </tr>
+                <tr>
+                    <td>Record</td>
+                    <td>Document</td>
+                </tr>
+                <tr>
+                    <td>Column</td>
+                    <td>Property</td>
+                </tr>
+                <tr>
+                    <td>Joins</td>
+                    <td>Sub document</td>
+                </tr>
+            </table>
+
+
+            <p><a class="btn btn-primary" href="http://webdev.tezzt.nl" target="_blank">View
+                details &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr>
+    <footer>
+        <p>CRIA-WT 2014</p>
+    </footer>
+</div>
+<!-- /container -->
+
+<!-- ================================================== -->
+<!-- Lib -->
+<!-- Retrieved from http://code.angularjs.org/1.1.5/ -->
+<script src="./javascripts/lib/angular.min.js"></script>
+<script src="./javascripts/lib/angular-resource.min.js"></script>
+
+<!-- Bootstrap core JavaScript
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./javascripts/lib/jquery.js"></script>
+<script src="./javascripts/lib/bootstrap.min.js"></script>
+
+<!-- Bug in Chrome Dev tools
+    @see http://bugs.jquery.com/ticket/14225 -->
+<script src="./javascripts/lib/jquery-1.10.2.min.map"></script>
+
+<!-- App -->
+<script src="./javascripts/app.js"></script>
+<script src="./javascripts/controllers.js"></script>
+<script src="./javascripts/services.js"></script>
+
+</body>
+</html>

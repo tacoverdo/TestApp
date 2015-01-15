@@ -1,0 +1,21 @@
+{
+    "name": "test-demo",
+    "description": "",
+    "author": "theotheu",
+    "private": true,
+    "version": "0.0.1",
+
+    "dependencies": {
+    },
+
+    "devDependencies": {
+        "mocha": "*"
+    },
+
+    "scripts": {
+        "test": "mocha -R spec"
+    },
+    "engines": {
+        "node": "*"
+    }
+}
