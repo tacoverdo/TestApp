@@ -13,7 +13,7 @@ angular.module('myApp', [ 'myApp.services'])
         // Home
         $routeProvider.when('/home', {
             templateUrl: 'partials/home.html',
-            controller: UserLoginCtrl
+            controller: HomeCtrl
         });
 
         // Get all groups
